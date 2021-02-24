@@ -1,5 +1,15 @@
 /*****************************************************************************
 
+    Adapted from ftt_scan example in original daqhats example directory for
+    mcc172 for use within precision laser inclinometer. 
+
+    Adapted by Elise Hinkle (ehinkle@uchicago.edu)
+
+    Last Updated: February 24, 2021
+
+ *****************************************************************************/
+/*****************************************************************************
+
     MCC 172 Functions Demonstrated:
         mcc172_iepe_config_write
         mcc172_a_in_clock_config_write
@@ -157,8 +167,8 @@ int main(void)
     uint8_t num_channels = convert_chan_mask_to_array(channel_mask,
         channel_array);
 
-    uint32_t samples_per_channel = 12800;
-    double scan_rate = 51200.0;
+    uint32_t samples_per_channel = 200.0; // in Samples/second (min = 200 S/s)
+    double scan_rate = 400.0;
     double actual_scan_rate = 0.0;
     
     uint32_t buffer_size = samples_per_channel * num_channels;
